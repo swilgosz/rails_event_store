@@ -3,7 +3,6 @@
 require 'ruby2_keywords'
 require_relative 'aggregate_root/version'
 require_relative 'aggregate_root/configuration'
-require_relative 'aggregate_root/transform'
 require_relative 'aggregate_root/default_apply_strategy'
 require_relative 'aggregate_root/repository'
 require_relative 'aggregate_root/instrumented_repository'
