@@ -182,11 +182,11 @@ The aggregate root repository instrumentation is not enabled automaticly here. T
 ```
 
 
-#### serialize.mapper.ruby_event_store
+#### event_to_record.mapper.ruby_event_store
 
 | Key         | Value |
 | ----------- | ----- |
-| :domain_event | An event instance which is being mapped into RubyEventStore::Record |
+| :event | An event instance which is being mapped into RubyEventStore::Record |
 
 ```ruby
 {
@@ -194,7 +194,7 @@ The aggregate root repository instrumentation is not enabled automaticly here. T
 }
 ```
 
-#### deserialize.mapper.ruby_event_store
+#### record_to_event.mapper.ruby_event_store
 
 | Key         | Value |
 | ----------- | ----- |
