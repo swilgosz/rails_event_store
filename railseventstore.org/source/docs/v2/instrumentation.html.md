@@ -75,12 +75,12 @@ The aggregate root repository instrumentation is not enabled automaticly here. T
 
 | Key     | Value |
 | ------- | ----- |
-| :events | An array of appended [RubyEventStore::Record](https://www.rubydoc.info/gems/ruby_event_store/RubyEventStore/Record) objects |
+| :records | An array of appended [RubyEventStore::Record](https://www.rubydoc.info/gems/ruby_event_store/RubyEventStore/Record) objects |
 | :stream | A [RubyEventStore::Stream](https://www.rubydoc.info/gems/ruby_event_store/RubyEventStore/Stream) that we append events to |
 
 ```ruby
 {
-  events: [#<RubyEventStore::Record:0x0000000104b51f30>],
+  records: [#<RubyEventStore::Record:0x0000000104b51f30>],
   stream: #<RubyEventStore::Stream:0x0000000106cbf578>
 }
 ```
@@ -145,11 +145,11 @@ The aggregate root repository instrumentation is not enabled automaticly here. T
 
 | Key            | Value |
 | -------------- | ----- |
-| :messages      | An array of [RubyEventStore::Record](https://www.rubydoc.info/gems/ruby_event_store/RubyEventStore/Record) objects to replace existing ones of the same identifiers |
+| :records      | An array of [RubyEventStore::Record](https://www.rubydoc.info/gems/ruby_event_store/RubyEventStore/Record) objects to replace existing ones of the same identifiers |
 
 ```ruby
 {
-  messages: [#<RubyEventStore::Record:0x0000000109e4ff98]
+  records: [#<RubyEventStore::Record:0x0000000109e4ff98]
 }
 ```
 

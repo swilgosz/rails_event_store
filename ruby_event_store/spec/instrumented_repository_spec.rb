@@ -25,7 +25,7 @@ module RubyEventStore
           instrumented_repository.append_to_stream([record], stream, expected_version)
 
           expect(notification_calls).to eq([
-            { events: [record], stream: stream }
+            { records: [record], stream: stream }
           ])
         end
       end
@@ -154,7 +154,7 @@ module RubyEventStore
           instrumented_repository.update_messages([record])
 
           expect(notification_calls).to eq([
-            { messages: [record] }
+            { records: [record] }
           ])
         end
       end
