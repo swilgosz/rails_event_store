@@ -59,7 +59,7 @@ The `rails_event_store` gem is integrated with `ActiveSupport::Notifications` th
 You can start [subscribing](https://guides.rubyonrails.org/active_support_instrumentation.html#subscribing-to-an-event) to the instrumentation hooks by now:
 
 ```ruby
-hook_name = "append_to_stream.repository.rails_event_store"
+hook_name = "append_to_stream.repository.ruby_event_store"
 
 ActiveSupport::Notifications.subscribe(hook_name) do |name, start, finish, id, payload|
   metric = ActiveSupport::Notifications::Event.new(name, start, finish, id, payload)
@@ -71,7 +71,7 @@ The aggregate root repository instrumentation is not enabled automaticly here. T
 
 ## Hooks and their payloads
 
-#### append_to_stream.repository.rails_event_store
+#### append_to_stream.repository.ruby_event_store
 
 | Key     | Value |
 | ------- | ----- |
@@ -86,7 +86,7 @@ The aggregate root repository instrumentation is not enabled automaticly here. T
 ```
 
 
-#### link_to_stream.repository.rails_event_store
+#### link_to_stream.repository.ruby_event_store
 
 | Key        | Value |
 | ---------- | ----- |
@@ -102,7 +102,7 @@ The aggregate root repository instrumentation is not enabled automaticly here. T
 ```
 
 
-#### delete_stream.repository.rails_event_store
+#### delete_stream.repository.ruby_event_store
 
 | Key     | Value |
 | ------- | ----- |
@@ -115,7 +115,7 @@ The aggregate root repository instrumentation is not enabled automaticly here. T
 ```
 
 
-#### read.repository.rails_event_store
+#### read.repository.ruby_event_store
 
 | Key            | Value |
 | -------------- | ----- |
@@ -128,7 +128,7 @@ The aggregate root repository instrumentation is not enabled automaticly here. T
 ```
 
 
-#### count.repository.rails_event_store
+#### count.repository.ruby_event_store
 
 | Key            | Value |
 | -------------- | ----- |
@@ -141,7 +141,7 @@ The aggregate root repository instrumentation is not enabled automaticly here. T
 ```
 
 
-#### update_messages.repository.rails_event_store
+#### update_messages.repository.ruby_event_store
 
 | Key            | Value |
 | -------------- | ----- |
@@ -154,7 +154,7 @@ The aggregate root repository instrumentation is not enabled automaticly here. T
 ```
 
 
-#### streams_of.repository.rails_event_store
+#### streams_of.repository.ruby_event_store
 
 | Key            | Value |
 | -------------- | ----- |
@@ -167,7 +167,7 @@ The aggregate root repository instrumentation is not enabled automaticly here. T
 ```
 
 
-#### call.dispatcher.rails_event_store
+#### call.dispatcher.ruby_event_store
 
 | Key         | Value |
 | ----------- | ----- |
@@ -182,7 +182,7 @@ The aggregate root repository instrumentation is not enabled automaticly here. T
 ```
 
 
-#### serialize.mapper.rails_event_store
+#### serialize.mapper.ruby_event_store
 
 | Key         | Value |
 | ----------- | ----- |
@@ -194,7 +194,7 @@ The aggregate root repository instrumentation is not enabled automaticly here. T
 }
 ```
 
-#### deserialize.mapper.rails_event_store
+#### deserialize.mapper.ruby_event_store
 
 | Key         | Value |
 | ----------- | ----- |
