@@ -18,5 +18,6 @@ module Orders
     OrderExpired = Class.new(RubyEventStore::Event)
     OrderCanceled = Class.new(RubyEventStore::Event)
     SpanishInquisition = Class.new(RubyEventStore::Event)
+    Snapshot = Class.new(RubyEventStore::Event)
   end
 end
