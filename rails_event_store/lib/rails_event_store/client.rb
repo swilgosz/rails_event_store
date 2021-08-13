@@ -15,7 +15,7 @@ module RailsEventStore
                    request_metadata: default_request_metadata)
       super(repository: RubyEventStore::InstrumentedRepository.new(repository, ActiveSupport::Notifications),
             mapper: RubyEventStore::Mappers::InstrumentedMapper.new(mapper, ActiveSupport::Notifications),
-            subscriptions: subscriptions,
+            subscriptions: RubyEventStore::InstrumentedSubscriptions.new(subscriptions, ActiveSupport::Notifications),
             clock: clock,
             correlation_id_generator: correlation_id_generator,
             dispatcher: RubyEventStore::InstrumentedDispatcher.new(dispatcher, ActiveSupport::Notifications)
