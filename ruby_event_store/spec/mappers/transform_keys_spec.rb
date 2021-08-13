@@ -14,6 +14,20 @@ module RubyEventStore
       nein: nil,
       ten: {some: "hash", with: {nested: "values"}},
       eleven: [1,{another: "hash", here: 2},3],
+      array: [
+        123,
+        { twelve: {meh: "doh"} },
+        [
+          456,
+          thirteen: {
+            another_array: [
+              789,
+              { fourteen: {just: "one more"} },
+              "enough",
+            ],
+          },
+        ],
+      ],
     } }
     let(:hash_with_strings) { {
       "one" => 1,
@@ -27,6 +41,20 @@ module RubyEventStore
       "nein" => nil,
       "ten" => {"some" => "hash", "with" => {"nested" => "values"}},
       "eleven" => [1,{"another" => "hash", "here" => 2},3],
+      "array" => [
+        123,
+        { "twelve" => {"meh" => "doh"} },
+        [
+          456,
+          "thirteen" => {
+            "another_array" => [
+              789,
+              { "fourteen" => {"just" => "one more"} },
+              "enough",
+            ],
+          },
+        ],
+      ],
     } }
 
     it { expect(TransformKeys.stringify(hash_with_symbols)).to eq(hash_with_strings) }
