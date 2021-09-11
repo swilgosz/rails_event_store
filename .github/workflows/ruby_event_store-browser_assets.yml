@@ -1,0 +1,40 @@
+name: ruby_event_store-browser_assets
+on:
+  push:
+
+jobs:
+  test:
+    runs-on: ${{ matrix.os }}
+    env:
+      WORKING_DIRECTORY: ruby_event_store-browser
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/cache@v2
+        with:
+          path: ${{ env.WORKING_DIRECTORY }}/elm/node_modules
+          key: ${{ runner.OS }}-node-${{ hashFiles(join(env.WORKING_DIRECTORY, '/elm/yarn.lock')) }}
+      - run: yarn install
+        working-directory: ${{ env.WORKING_DIRECTORY }}/elm
+      - run: yarn build
+        working-directory: ${{ env.WORKING_DIRECTORY }}/elm
+      - uses: actions/upload-artifact@v2
+        with:
+          name: ruby_event_store_browser.js
+          path: ${{ env.WORKING_DIRECTORY }}/public/ruby_event_store_browser.js
+      - uses: actions/upload-artifact@v2
+        with:
+          name: ruby_event_store_browser.js.map
+          path: ${{ env.WORKING_DIRECTORY }}/public/ruby_event_store_browser.js.map
+      - uses: actions/upload-artifact@v2
+        with:
+          name: ruby_event_store_browser.css
+          path: ${{ env.WORKING_DIRECTORY }}/public/ruby_event_store_browser.css
+      - uses: actions/upload-artifact@v2
+        with:
+          name: ruby_event_store_browser.css.map
+          path: ${{ env.WORKING_DIRECTORY }}/public/ruby_event_store_browser.css.map
