@@ -64,14 +64,14 @@ module RubyEventStore
           <html>
             <head>
               <title>RubyEventStore::Browser</title>
-              <link type="text/css" rel="stylesheet" href="<%= path %>/ruby_event_store_browser.css">
+              <link type="text/css" rel="stylesheet" href="<%= css_src %>">
               <meta name="ruby-event-store-browser-settings" content='<%= browser_settings %>'>
             </head>
             <body>
-              <script type="text/javascript" src="<%= path %>/ruby_event_store_browser.js"></script>
+              <script type="text/javascript" src="<%= js_src %>"></script>
             </body>
           </html>
-        }, locals: { path: settings.root_path || request.script_name }
+        }
       end
 
       helpers do
@@ -82,8 +82,38 @@ module RubyEventStore
         def routing
           Routing.new(
             settings.host || request.base_url,
-            settings.root_path || request.script_name
+            path
           )
+        end
+
+        def path
+          settings.root_path || request.script_name
+        end
+
+        def js_src
+          name = "ruby_event_store_browser.js"
+          local_file_url(name) || cdn_file_url(name)
+        end
+
+        def css_src
+          name = "ruby_event_store_browser.css"
+          local_file_url(name) || cdn_file_url(name)
+        end
+
+        def local_file_url(name)
+          File.join(path, name) if File.exist?(File.join(settings.public_folder, name))
+        end
+
+        def cdn_file_url(name)
+          "https://d3iay4bmfswobf.cloudfront.net/#{commit_sha}/#{name}"
+        end
+
+        def commit_sha
+          $LOAD_PATH
+            .select { |x| x.end_with? "ruby_event_store-browser/lib" }
+            .map    { |x| x.split("/")[-3] }
+            .map    { |x| x.split("-")[-1] }
+            .first
         end
 
         def browser_settings
