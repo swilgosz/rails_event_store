@@ -169,7 +169,7 @@ GEM
       rspec-support (~> 3.10.0)
     rspec-support (3.10.3)
     ruby2_keywords (0.0.5)
-    sidekiq (6.2.2)
+    sidekiq (6.4.0)
       connection_pool (>= 2.2.2)
       rack (~> 2.0)
       redis (>= 4.2.0)
@@ -203,7 +203,7 @@ DEPENDENCIES
   rspec (~> 3.6)
   ruby_event_store!
   ruby_event_store-outbox!
-  sidekiq (= 6.2.2)
+  sidekiq (= 6.4.0)
   sqlite3 (= 1.4.2)
 
 BUNDLED WITH
