@@ -137,7 +137,7 @@ module RailsEventStoreActiveRecord
     end
 
     def start_transaction(&block)
-      @event_klass.transaction(requires_new: true, &block)
+      @event_klass.transaction(requires_new: false, &block)
     end
   end
 
